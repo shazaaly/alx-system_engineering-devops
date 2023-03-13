@@ -1,2 +1,2 @@
 #!/bin/bash
-echo tail -n 1 ls_cwd_content > ls_cwd_content
+tail -1 ls_cwd_content | tee -a ls_cwd_content
