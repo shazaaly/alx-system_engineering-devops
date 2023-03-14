@@ -1,2 +1,2 @@
 #!/bin/bash
-echo 'export NEWVAR="new value"' >> /etc/profile
+echo 'export BEST="School"' >> /etc/profile
