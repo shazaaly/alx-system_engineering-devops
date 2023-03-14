@@ -1,2 +1,2 @@
 #!/bin/bash
-echo 'export BEST="School"' >> /etc/profile
+vi ~/.bash_profile | export BEST=School | source ~/.bash_profile
