@@ -4,5 +4,12 @@
 #In a list format
 
 for file in * ; do
-	echo "$(cut -d "-" -f 2 <<< "$file")"
+	if [ -f "$file" ]
+		then
+			case $file in
+			*-*) cut -d "-" -f 2 <<< "$file";;
+
+			esac
+	fi
+
 done
