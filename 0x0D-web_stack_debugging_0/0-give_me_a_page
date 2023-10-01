@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 # a script to fix for curling port 80 return a page that contains Hello Holberton
-
+echo "ServerName localhost" >> /etc/apache2/sites-available/000-default.conf
+service apache2 start
