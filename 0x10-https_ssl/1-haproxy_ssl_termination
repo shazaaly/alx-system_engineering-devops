@@ -32,6 +32,12 @@ defaults
         errorfile 502 /etc/haproxy/errors/502.http
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
+
+frontend shaza-frontend
+    bind   0.0.0.0:80
+    reqadd X-Forwarded-Proto:\ http
+    default_backend shaza-backend
+
 frontend  shaza-frontend
         bind *:443 ssl crt /etc/haproxy/certs/www.shaza.tech.pem
         redirect scheme https code 301 if !{ ssl_fc }
