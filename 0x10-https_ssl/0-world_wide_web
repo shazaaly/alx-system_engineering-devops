@@ -3,8 +3,8 @@
 # The subdomain [SUB_DOMAIN] is a [RECORD_TYPE] record and points to [DESTINATION]
 
 info () {
-    data=$(dig "$2"."$1" | awk '/ANSWER SECTION:/ {getline; print}' | awk '{print $1, $5}')
-    echo "$2 $data" | awk '{print "The subdomain " $1 " is a " $2 " record and points to " $3}'
+#    data=$(dig "$2"."$1" | awk '/ANSWER SECTION:/ {getline; print}' | awk '{print $1, $4}')
+    echo "$(dig "$2"."$1" | awk '/ANSWER SECTION:/{getline; print "The subdomain " $1 " is a " $4 " record and points to " $5}')"
 }
 
 
