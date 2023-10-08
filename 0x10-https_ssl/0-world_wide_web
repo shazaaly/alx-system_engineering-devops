@@ -10,14 +10,12 @@ info () {
     echo "$(dig lb-01.$1 | awk '/ANSWER SECTION:/{getline; print "The subdomain lb-01 is a " $4 " record and points to " $5}')"
 }
 
+if [ "$#" == 1 ];then
+        info "$1"
+fi
 
-if [ "$#" == 1 ]
-then
-  info "$1" "www"
-  info "$1" "lb-01"
-  info "$1" "web-01"
-  info "$1" "web-02"
-elif [ "$#" == 2 ]
+
+if [ "$#" == 2 ]
 then
   info "$1" "$2"
 fi
