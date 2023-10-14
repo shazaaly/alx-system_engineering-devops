@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# Configure your Nginx server so that /redirect_me is redirecting to another page.
+
+sudo apt-get -y update
+sudo apt-get -y install nginx
+ufw allow 'Nginx HTTP'
+echo 'Hello World!' > /var/www/html/index.nginx-debian.html
+#!/bin/bash
+
+# Define the old and new URLs
+old_url="/redirect_me"
+new_url="https://google.com"
+
+# Create a new Nginx configuration file for the redirection
+echo "server {
+    listen 80;
+    server_name example.com;
+
+    location $old_url {
+        return 301 $new_url;
+    }
+}" > /etc/nginx/sites-available/redirect.conf
+
+# Create a symbolic link to enable the configuration
+ln -s /etc/nginx/sites-available/redirect.conf /etc/nginx/sites-enabled/
+
+# Test Nginx configuration
+nginx -t
+
+# Reload Nginx to apply the changes
+systemctl reload nginx
