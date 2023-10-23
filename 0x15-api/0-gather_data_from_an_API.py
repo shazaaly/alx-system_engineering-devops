@@ -33,7 +33,8 @@ if __name__ == "__main__":
     completed_count = len(completed)
     total_count = len(todos)
 
-    print(f"Employee {user.get('name')} is done with tasks({completed_count}/{total_count}):")
+    print("Employee {} is done with tasks({}/{}):".format(
+        user.get("name"), len(completed), len(todos)))
     for task in completed:
         print("\t" + task)
 
