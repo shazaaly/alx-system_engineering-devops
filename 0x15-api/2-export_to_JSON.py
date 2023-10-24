@@ -24,9 +24,8 @@ if __name__ == "__main":
     for task in todos:
         employee_data[employee_id].append({
             "task": task.get("title"),
-            "completed": task.get("completed"),
-            "username": user.get("username")
-        })
+            "completed": task.get("commpleted"),
+            "username": user.get("username")})
 
     # Define the filename based on the employee's ID
     filename = f"{employee_id}.json"
