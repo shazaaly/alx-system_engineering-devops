@@ -16,9 +16,4 @@ def top_ten(subreddit):
     # Print the response data
     posts = data['data']['children']
     for post in posts:
-        return post['data']['title']
-
-# if __name__ == '__main__':
-#     # Example: Get the response structure for the "programming" subreddit
-#     subreddit_name = 'programming'
-#     top_ten(subreddit_name)
+        print(post['data']['title'])
